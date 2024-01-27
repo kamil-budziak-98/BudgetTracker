@@ -39,6 +39,11 @@
             BtnConfirm = new Button();
             BtnCancel = new Button();
             BtnNewBudget = new Button();
+            txtBoxSurplusPercent = new TextBox();
+            label5 = new Label();
+            comBoxSurplusBudget = new ComboBox();
+            label7 = new Label();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -71,7 +76,7 @@
             comBoxBudgets.Location = new Point(178, 11);
             comBoxBudgets.Margin = new Padding(2);
             comBoxBudgets.Name = "comBoxBudgets";
-            comBoxBudgets.Size = new Size(234, 29);
+            comBoxBudgets.Size = new Size(232, 29);
             comBoxBudgets.TabIndex = 2;
             comBoxBudgets.SelectedIndexChanged += comBoxBudgets_SelectedIndexChanged;
             // 
@@ -81,7 +86,7 @@
             txtBoxAmount.Location = new Point(178, 48);
             txtBoxAmount.Margin = new Padding(2);
             txtBoxAmount.Name = "txtBoxAmount";
-            txtBoxAmount.Size = new Size(234, 29);
+            txtBoxAmount.Size = new Size(232, 29);
             txtBoxAmount.TabIndex = 3;
             txtBoxAmount.TextAlign = HorizontalAlignment.Right;
             // 
@@ -103,7 +108,7 @@
             txtBoxBalance.Margin = new Padding(2);
             txtBoxBalance.Name = "txtBoxBalance";
             txtBoxBalance.ReadOnly = true;
-            txtBoxBalance.Size = new Size(234, 29);
+            txtBoxBalance.Size = new Size(232, 29);
             txtBoxBalance.TabIndex = 5;
             txtBoxBalance.TextAlign = HorizontalAlignment.Right;
             // 
@@ -125,14 +130,14 @@
             txtBoxSpending.Margin = new Padding(2);
             txtBoxSpending.Name = "txtBoxSpending";
             txtBoxSpending.ReadOnly = true;
-            txtBoxSpending.Size = new Size(234, 29);
+            txtBoxSpending.Size = new Size(232, 29);
             txtBoxSpending.TabIndex = 7;
             txtBoxSpending.TextAlign = HorizontalAlignment.Right;
             // 
             // BtnConfirm
             // 
             BtnConfirm.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnConfirm.Location = new Point(316, 179);
+            BtnConfirm.Location = new Point(316, 257);
             BtnConfirm.Margin = new Padding(2);
             BtnConfirm.Name = "BtnConfirm";
             BtnConfirm.Size = new Size(94, 32);
@@ -144,7 +149,7 @@
             // BtnCancel
             // 
             BtnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnCancel.Location = new Point(217, 179);
+            BtnCancel.Location = new Point(217, 257);
             BtnCancel.Margin = new Padding(2);
             BtnCancel.Name = "BtnCancel";
             BtnCancel.Size = new Size(94, 32);
@@ -157,7 +162,7 @@
             // 
             BtnNewBudget.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnNewBudget.ForeColor = SystemColors.Highlight;
-            BtnNewBudget.Location = new Point(18, 179);
+            BtnNewBudget.Location = new Point(18, 257);
             BtnNewBudget.Margin = new Padding(2);
             BtnNewBudget.Name = "BtnNewBudget";
             BtnNewBudget.Size = new Size(94, 32);
@@ -166,13 +171,71 @@
             BtnNewBudget.UseVisualStyleBackColor = true;
             BtnNewBudget.Click += BtnNewBudget_Click;
             // 
+            // txtBoxSurplusPercent
+            // 
+            txtBoxSurplusPercent.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBoxSurplusPercent.Location = new Point(178, 167);
+            txtBoxSurplusPercent.Margin = new Padding(2);
+            txtBoxSurplusPercent.Name = "txtBoxSurplusPercent";
+            txtBoxSurplusPercent.Size = new Size(205, 29);
+            txtBoxSurplusPercent.TabIndex = 11;
+            txtBoxSurplusPercent.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(387, 170);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(23, 21);
+            label5.TabIndex = 12;
+            label5.Text = "%";
+            // 
+            // comBoxSurplusBudget
+            // 
+            comBoxSurplusBudget.DropDownStyle = ComboBoxStyle.DropDownList;
+            comBoxSurplusBudget.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comBoxSurplusBudget.FormattingEnabled = true;
+            comBoxSurplusBudget.Location = new Point(178, 206);
+            comBoxSurplusBudget.Name = "comBoxSurplusBudget";
+            comBoxSurplusBudget.Size = new Size(232, 29);
+            comBoxSurplusBudget.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(17, 170);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(153, 21);
+            label7.TabIndex = 15;
+            label7.Text = "Surplus shift percent";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(18, 209);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(118, 21);
+            label6.TabIndex = 16;
+            label6.Text = "Surplus shift to:";
+            // 
             // SettingsForm
             // 
             AcceptButton = BtnConfirm;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = BtnCancel;
-            ClientSize = new Size(427, 225);
+            ClientSize = new Size(427, 303);
+            Controls.Add(label6);
+            Controls.Add(label7);
+            Controls.Add(comBoxSurplusBudget);
+            Controls.Add(label5);
+            Controls.Add(txtBoxSurplusPercent);
             Controls.Add(BtnNewBudget);
             Controls.Add(BtnCancel);
             Controls.Add(BtnConfirm);
@@ -205,5 +268,10 @@
         private Button BtnConfirm;
         private Button BtnCancel;
         private Button BtnNewBudget;
+        private TextBox txtBoxSurplusPercent;
+        private Label label5;
+        private ComboBox comBoxSurplusBudget;
+        private Label label7;
+        private Label label6;
     }
 }

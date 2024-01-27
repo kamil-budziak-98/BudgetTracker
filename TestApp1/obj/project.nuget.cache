@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dpMlUOFKX48KPK7BK18NGeLnVFwohUV1LCKxfmwqk9QT2qNxOCieNXXo0dmUMfTmnUgTTZe2yTz4w8pjZPX2nw==",
+  "dgSpecHash": "eIWhaSRjZ/FOd3avCrJGx6zf1ycC0G1gpGhYy2IxtqDrSnji5/+d8e7zlwrs6KDCGBWDOqu4jUicrlnOLCz14Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\v-kbudziak\\source\\repos\\TestApp1\\TestApp1\\TestApp1.csproj",
+  "projectFilePath": "C:\\Git\\BudgetTracker\\TestApp1\\TestApp1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

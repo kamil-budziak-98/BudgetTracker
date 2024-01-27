@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Xml.Linq;
 
 namespace TestApp1
 {
@@ -37,10 +38,14 @@ namespace TestApp1
                         b.totalAmount = double.Parse(details[4]);
                         b.totalSpending = double.Parse(details[5]);
                         b.lastUpdate = DateTime.Parse(details[6]);
+                        b.BudgetId = int.Parse(details[7]);
+                        b.SurplusShiftPercent = double.Parse(details[8]);
+                        b.SurplusShiftBudgetId = int.Parse(details[9]);
                         Budgets.Add(b);
                     }
                 }
                 foreach (Budget b in Budgets) {
+                    b.SurplusShiftBudget = Budgets.Where(b2 => b2.BudgetId == b.SurplusShiftBudgetId).First();
                     b.AddDailyAmount();
                 }
                 BudgetsTableUpdate();
@@ -95,7 +100,17 @@ namespace TestApp1
                     b.dailyAmount + "\t" +
                     b.totalAmount + "\t" +
                     b.totalSpending + "\t" +
-                    b.lastUpdate;
+                    b.lastUpdate + "\t" +
+                    b.BudgetId + "\t" +
+                    b.SurplusShiftPercent + "\t";
+                if (b.SurplusShiftBudget != null)
+                {
+                    line += b.SurplusShiftBudget.BudgetId;
+                }
+                else
+                {
+                    line += "0";
+                }
                 lines.Add(line);
             }
             File.AppendAllLines("budgets.txt", lines);
@@ -115,6 +130,18 @@ namespace TestApp1
                 BudgetsTable.Rows[i].Cells[3].Value = b.currentBalance.ToString("0.00");
                 BudgetsTable.Rows[i].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
+        }
+        public void SetBudgetId(Budget b)
+        {
+            int id = 1;
+            foreach(Budget b2 in Budgets)
+            {
+                if(b2 != b && b2.BudgetId != 0)
+                {
+                    id++;
+                }
+            }
+            b.BudgetId = id;
         }
     }
 }
