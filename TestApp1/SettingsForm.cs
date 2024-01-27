@@ -35,10 +35,12 @@ namespace TestApp1
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            comBoxSurplusBudget.Items.Add("(none)");
             foreach (Budget b in Form1.Budgets)
             {
                 string s = b.fullName + " [" + b.shortName + "]";
                 comBoxBudgets.Items.Add(s);
+                comBoxSurplusBudget.Items.Add(s);
             }
         }
 
@@ -54,6 +56,16 @@ namespace TestApp1
             txtBoxBalance.Text = roundedCurrentBalance.ToString("0.00"); 
             txtBoxSpending.Text = roundedTotalSpending.ToString("0.00");
             txtBoxSurplusPercent.Text = roundedshiftPercent.ToString("0.00");
+            if(selectedBudget.SurplusShiftBudget != null)
+            {
+                comBoxSurplusBudget.Text = selectedBudget.SurplusShiftBudget.fullName + " [" + selectedBudget.SurplusShiftBudget.shortName + "]";
+            }
+            else
+            {
+                {
+                    comBoxSurplusBudget.Text = "(none)";
+                }
+            }
         }
 
         private void BtnConfirm_Click(object sender, EventArgs e)

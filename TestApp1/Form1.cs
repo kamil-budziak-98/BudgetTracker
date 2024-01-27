@@ -45,7 +45,14 @@ namespace TestApp1
                     }
                 }
                 foreach (Budget b in Budgets) {
-                    b.SurplusShiftBudget = Budgets.Where(b2 => b2.BudgetId == b.SurplusShiftBudgetId).First();
+                    if(b.SurplusShiftBudgetId > 0)
+                    {
+                        b.SurplusShiftBudget = Budgets.Where(b2 => b2.BudgetId == b.SurplusShiftBudgetId).First();
+                    }
+                    else
+                    {
+                        b.SurplusShiftBudget = null;
+                    }
                     b.AddDailyAmount();
                 }
                 BudgetsTableUpdate();

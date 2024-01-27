@@ -22,6 +22,7 @@ namespace TestApp1
         public Budget SurplusShiftBudget { get; set; }
         public int SurplusShiftBudgetId { get; set; }
 
+
         #endregion
 
         #region METHODS
