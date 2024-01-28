@@ -20,7 +20,7 @@ namespace TestApp1
 #if DEBUG
             versionLabel.Text = "v" + v.Major + "." + v.Minor + "." + v.Build + "." + v.Revision;
 #else   
-            if (v.Build == 0) {
+            if (v.Build != 0) {
                 versionLabel.Text = "v" + v.Major + "." + v.Minor + "." + v.Build;
             }
             else {
