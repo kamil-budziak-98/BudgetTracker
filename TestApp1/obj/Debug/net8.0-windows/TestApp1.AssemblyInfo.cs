@@ -11,13 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("TestApp1")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Kamil Budziak IT Solutions")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.3.3.*")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.3.3+e871d5e61b6af46a636da5dc48c7f723e6afcaee")]
-[assembly: System.Reflection.AssemblyProductAttribute("TestApp1")]
-[assembly: System.Reflection.AssemblyTitleAttribute("TestApp1")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.3.3.*")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.4.*")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.4.0+53bfda224db311aa840cff33c4a208a6e9f12829")]
+[assembly: System.Reflection.AssemblyProductAttribute("Budget Tracker")]
+[assembly: System.Reflection.AssemblyTitleAttribute("BudgetTracker")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.4.*")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

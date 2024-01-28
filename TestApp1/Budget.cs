@@ -1,4 +1,6 @@
-﻿namespace TestApp1
+﻿using Newtonsoft.Json;
+
+namespace TestApp1
 {
     public class Budget
     {
@@ -24,6 +26,21 @@
             SurplusShiftBudgetId = int.Parse(str[9]);
             // adds budget to the list
             list.Add(this);
+        }
+
+        [JsonConstructor]
+        public Budget(string fullName, string shortName, double currentBalance, double dailyAmount, double totalAmount, double totalSpending, DateTime lastUpdate, int id, double shiftPercent, int shiftBudgetId)
+        {
+            this.shortName = shortName;
+            this.fullName = fullName;
+            this.currentBalance = currentBalance;
+            this.dailyAmount = dailyAmount;
+            this.totalAmount = totalAmount;
+            this.totalSpending = totalSpending;
+            this.lastUpdate = lastUpdate;
+            this.BudgetId = id;
+            this.SurplusShiftPercent = shiftPercent;
+            this.SurplusShiftBudgetId = shiftBudgetId;
         }
 
         /// <summary>
@@ -100,17 +117,36 @@
 
 
         #region PROPERTIES
-
+        [JsonProperty("fullName")]
         public string fullName {  get; set; }
+
+        [JsonProperty("shortName")]
         public string shortName { get; set; }
+
+        [JsonProperty("currentBalance")]
         public double currentBalance { get; set; }
+
+        [JsonProperty("dailyAmount")]
         public double dailyAmount { get; set; }
+
+        [JsonProperty("totalAmount")]
         public double totalAmount { get; set; }
+
+        [JsonProperty("totalSpending")]
         public double totalSpending {  get; set; }
+
+        [JsonProperty("lastUpdate")]
         public DateTime lastUpdate { get; set; }
+
+        [JsonProperty("id")]
         public int BudgetId { get; set; } = 0;
+
+        [JsonProperty("shiftPercent")]
         public double SurplusShiftPercent { get; set; } = 0;
+
         public Budget SurplusShiftBudget { get; set; }
+
+        [JsonProperty("shiftBudgetId")]
         public int SurplusShiftBudgetId { get; set; }
 
 

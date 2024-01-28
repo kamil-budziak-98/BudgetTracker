@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Xml.Linq;
-// using Newtonsoft.Json;
+//using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace TestApp1
 {
@@ -11,7 +12,7 @@ namespace TestApp1
             InitializeComponent();
         }
 
-
+        //public static JsonSerializer Json = new JsonSerializer();
 
         // ON LAUNCH
         private void Form1_Load(object sender, EventArgs e)
@@ -26,9 +27,19 @@ namespace TestApp1
             else {
                 versionLabel.Text = "v" + v.Major + "." + v.Minor;
             }
-            
 #endif
-            // READING THE BUDGETS FROM FILE
+            // READING THE BUDGETS FROM JSON FILE
+
+            if (File.Exists("budgets.json"))
+            {
+                string jsonStr = File.ReadAllText("budgets.json");
+                Budgets = JsonConvert.DeserializeObject<List<Budget>>(jsonStr);
+                UpdateNewBudgetList();
+                BudgetsTableUpdate();
+            }
+
+            /*
+            // READING THE BUDGETS FROM TXT FILE
             if (File.Exists("budgets.txt"))
             {
                 string[] budgets_str = File.ReadAllLines("budgets.txt");
@@ -54,6 +65,7 @@ namespace TestApp1
                 }
                 BudgetsTableUpdate();
             }
+            */
         }
 
         // ON EXIT
@@ -118,6 +130,27 @@ namespace TestApp1
                 lines.Add(line);
             }
             File.AppendAllLines("budgets.txt", lines);
+
+            // JSON
+            File.Delete("budgets.json");
+            string json = JsonConvert.SerializeObject(Budgets);
+            File.WriteAllText("budgets.json", json);
+        }
+
+        private void UpdateNewBudgetList()
+        {
+            foreach (Budget b in Budgets)
+            {
+                if (b.SurplusShiftBudgetId > 0)
+                {
+                    b.SurplusShiftBudget = Budgets.Where(b2 => b2.BudgetId == b.SurplusShiftBudgetId).First();
+                }
+                else
+                {
+                    b.SurplusShiftBudget = null;
+                }
+                b.AddDailyAmount();
+            }
         }
 
         public void BudgetsTableUpdate()
