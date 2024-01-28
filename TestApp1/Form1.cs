@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Xml.Linq;
+// using Newtonsoft.Json;
 
 namespace TestApp1
 {
@@ -18,8 +19,14 @@ namespace TestApp1
             var v = Assembly.GetExecutingAssembly().GetName().Version;
 #if DEBUG
             versionLabel.Text = "v" + v.Major + "." + v.Minor + "." + v.Build + "." + v.Revision;
-#else
-            versionLabel.Text = "v" + v.Major + "." + v.Minor;
+#else   
+            if (v.Build == 0) {
+                versionLabel.Text = "v" + v.Major + "." + v.Minor + "." + v.Build;
+            }
+            else {
+                versionLabel.Text = "v" + v.Major + "." + v.Minor;
+            }
+            
 #endif
             // READING THE BUDGETS FROM FILE
             if (File.Exists("budgets.txt"))
@@ -30,7 +37,8 @@ namespace TestApp1
                     if (!string.IsNullOrEmpty(budget_str))
                     {
                         string[] details = budget_str.Split('\t');
-                        Budget b = new Budget();
+                        Budget b = new Budget(details);
+                        /*
                         b.fullName = details[0];
                         b.shortName = details[1];
                         b.currentBalance = double.Parse(details[2]);
@@ -41,6 +49,7 @@ namespace TestApp1
                         b.BudgetId = int.Parse(details[7]);
                         b.SurplusShiftPercent = double.Parse(details[8]);
                         b.SurplusShiftBudgetId = int.Parse(details[9]);
+                        */
                         Budgets.Add(b);
                     }
                 }

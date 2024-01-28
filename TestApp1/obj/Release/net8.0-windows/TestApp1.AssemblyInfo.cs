@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestApp1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.3.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.3.0+e40bc23945e6d296a265c7549a1b75cc5bdbd2b4")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.3.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.3.1+04afa561a73278471bf65e8d0c5a88f36dfd9d22")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestApp1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestApp1")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.3.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.3.1.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
