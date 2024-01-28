@@ -16,34 +16,30 @@
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-            Budget b = new Budget();
-            b.fullName = txtBoxFullName.Text;
-            b.shortName = txtBoxShortName.Text;
+            // Budget b = new Budget(txtBoxFullName.Text, txtBoxShortName.Text, );
+            string fullName = txtBoxFullName.Text;
+            string shortName = txtBoxShortName.Text;
+            double dailyAmount = 0;
+            double shiftPercent = 0;
+            Budget surplusShiftBudget = null;
             // b.dailyAmount = double.Parse(txtBoxAmount.Text);
             // b.currentBalance = double.Parse(txtBoxAmount.Text);
-            b.totalSpending = 0;
-            b.lastUpdate = DateTime.Now;
-            Form1.Budgets.Add(b);
-            mainForm.BudgetsTableUpdate();
-            Close();
+            // double totalSpending = 0;
+            // b.lastUpdate = DateTime.Now;
             bool ps1, ps2, ps3 = false;
-            double dailyAmount;
             ps1 = double.TryParse(txtBoxAmount.Text, out dailyAmount);
             if (ps1)
             {
                 txtBoxAmount.BackColor = Color.White;
-                b.dailyAmount = dailyAmount;
             }
             else
             {
                 txtBoxAmount.BackColor = Color.Orange;
             }
-            double shiftPercent;
             ps2 = double.TryParse(txtBoxSurplusPercent.Text, out shiftPercent);
             if (ps2)
             {
                 txtBoxSurplusPercent.BackColor = Color.White;
-                b.SurplusShiftPercent = shiftPercent;
             }
             else
             {
@@ -61,15 +57,30 @@
                     {
                         mainForm.SetBudgetId(selectedSurplusBudget);
                     }
-                    b.SurplusShiftBudget = selectedSurplusBudget;
+                    surplusShiftBudget = selectedSurplusBudget;
                 }
                 else
                 {
                     comBoxSurplusBudget.BackColor = Color.Orange;
                 }
             }
+            else
+            {
+                ps3 = true;
+                comBoxSurplusBudget.BackColor = Color.White;
+            }
             if (ps1 && ps2 && ps3)
             {
+                Budget b;
+                if(shiftPercent > 0)
+                {
+                    b = new Budget(fullName, shortName, dailyAmount, shiftPercent, surplusShiftBudget);
+                }
+                else
+                {
+                    b = new Budget(fullName, shortName, dailyAmount);
+                }
+                Form1.Budgets.Add(b);
                 mainForm.BudgetsTableUpdate();
                 Close();
             }

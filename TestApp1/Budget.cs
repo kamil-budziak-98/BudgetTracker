@@ -5,11 +5,25 @@
         #region CONSTRUCTORS
 
         /// <summary>
-        /// Creates an empty instance of a budget (default constructor).
+        /// Creates a budget from line of parameters and adds it to the list.
         /// </summary>
-        public Budget ()
+        /// <param name="str">Array of budget parameters from "budgets.txt" file.</param>
+        /// <param name="list">List of budgets to which the budge is added.</param>
+        public Budget (string[] str, List<Budget> list)
         {
-
+            // pulls parameters from str
+            fullName = str[0];
+            shortName = str[1];
+            dailyAmount = double.Parse(str[3]);
+            currentBalance = double.Parse(str[2]);
+            totalAmount = double.Parse(str[4]);
+            totalSpending = double.Parse(str[5]);
+            lastUpdate = DateTime.Parse(str[6]);
+            BudgetId = int.Parse(str[7]);
+            SurplusShiftPercent = double.Parse(str[8]);
+            SurplusShiftBudgetId = int.Parse(str[9]);
+            // adds budget to the list
+            list.Add(this);
         }
 
         /// <summary>

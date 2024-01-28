@@ -37,20 +37,8 @@ namespace TestApp1
                     if (!string.IsNullOrEmpty(budget_str))
                     {
                         string[] details = budget_str.Split('\t');
-                        Budget b = new Budget(details);
-                        /*
-                        b.fullName = details[0];
-                        b.shortName = details[1];
-                        b.currentBalance = double.Parse(details[2]);
-                        b.dailyAmount = double.Parse(details[3]);
-                        b.totalAmount = double.Parse(details[4]);
-                        b.totalSpending = double.Parse(details[5]);
-                        b.lastUpdate = DateTime.Parse(details[6]);
-                        b.BudgetId = int.Parse(details[7]);
-                        b.SurplusShiftPercent = double.Parse(details[8]);
-                        b.SurplusShiftBudgetId = int.Parse(details[9]);
-                        */
-                        Budgets.Add(b);
+                        Budget b = new Budget(details, Budgets);
+                        //Budgets.Add(b);
                     }
                 }
                 foreach (Budget b in Budgets) {
