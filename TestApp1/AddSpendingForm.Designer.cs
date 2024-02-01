@@ -40,10 +40,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(17, 11);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(24, 18);
             label1.Name = "label1";
-            label1.Size = new Size(59, 21);
+            label1.Size = new Size(91, 32);
             label1.TabIndex = 0;
             label1.Text = "Budget";
             // 
@@ -51,10 +50,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(17, 48);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(24, 80);
             label2.Name = "label2";
-            label2.Size = new Size(108, 21);
+            label2.Size = new Size(166, 32);
             label2.TabIndex = 1;
             label2.Text = "Amount spent";
             // 
@@ -62,30 +60,27 @@
             // 
             comBoxBudgets.DropDownStyle = ComboBoxStyle.DropDownList;
             comBoxBudgets.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comBoxBudgets.Location = new Point(178, 11);
-            comBoxBudgets.Margin = new Padding(2);
+            comBoxBudgets.Location = new Point(254, 18);
             comBoxBudgets.Name = "comBoxBudgets";
-            comBoxBudgets.Size = new Size(234, 29);
+            comBoxBudgets.Size = new Size(333, 40);
             comBoxBudgets.TabIndex = 2;
             comBoxBudgets.SelectedIndexChanged += comBoxBudgets_SelectedIndexChanged;
             // 
             // txtBoxAmount
             // 
             txtBoxAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtBoxAmount.Location = new Point(178, 48);
-            txtBoxAmount.Margin = new Padding(2);
+            txtBoxAmount.Location = new Point(254, 80);
             txtBoxAmount.Name = "txtBoxAmount";
-            txtBoxAmount.Size = new Size(234, 29);
+            txtBoxAmount.Size = new Size(333, 39);
             txtBoxAmount.TabIndex = 3;
             txtBoxAmount.TextAlign = HorizontalAlignment.Right;
             // 
             // BtnConfirm
             // 
             BtnConfirm.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnConfirm.Location = new Point(316, 87);
-            BtnConfirm.Margin = new Padding(2);
+            BtnConfirm.Location = new Point(451, 145);
             BtnConfirm.Name = "BtnConfirm";
-            BtnConfirm.Size = new Size(94, 29);
+            BtnConfirm.Size = new Size(134, 48);
             BtnConfirm.TabIndex = 5;
             BtnConfirm.Tag = "";
             BtnConfirm.Text = "Confirm";
@@ -94,10 +89,9 @@
             // 
             // BtnCancel
             // 
-            BtnCancel.Location = new Point(218, 87);
-            BtnCancel.Margin = new Padding(2);
+            BtnCancel.Location = new Point(311, 145);
             BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(94, 29);
+            BtnCancel.Size = new Size(134, 48);
             BtnCancel.TabIndex = 4;
             BtnCancel.Tag = "";
             BtnCancel.Text = "Cancel";
@@ -107,19 +101,20 @@
             // AddSpendingForm
             // 
             AcceptButton = BtnConfirm;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = BtnCancel;
-            ClientSize = new Size(427, 130);
+            ClientSize = new Size(610, 217);
             Controls.Add(BtnCancel);
             Controls.Add(BtnConfirm);
             Controls.Add(txtBoxAmount);
             Controls.Add(comBoxBudgets);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2);
             MaximizeBox = false;
+            MaximumSize = new Size(632, 273);
             MinimizeBox = false;
+            MinimumSize = new Size(632, 273);
             Name = "AddSpendingForm";
             Text = "Add new Spending";
             Load += AddSpendingForm_Load;

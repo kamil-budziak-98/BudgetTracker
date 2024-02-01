@@ -105,32 +105,6 @@ namespace TestApp1
 
         private void SyncDataToFile()
         {
-            File.Delete("budgets.txt");
-            List<string> lines = new List<string>();
-            foreach (var b in Budgets)
-            {
-                string line =
-                    b.fullName + "\t" +
-                    b.shortName + "\t" +
-                    b.currentBalance + "\t" +
-                    b.dailyAmount + "\t" +
-                    b.totalAmount + "\t" +
-                    b.totalSpending + "\t" +
-                    b.lastUpdate + "\t" +
-                    b.BudgetId + "\t" +
-                    b.SurplusShiftPercent + "\t";
-                if (b.SurplusShiftBudget != null)
-                {
-                    line += b.SurplusShiftBudget.BudgetId;
-                }
-                else
-                {
-                    line += "0";
-                }
-                lines.Add(line);
-            }
-            File.AppendAllLines("budgets.txt", lines);
-
             // JSON
             File.Delete("budgets.json");
             string json = JsonConvert.SerializeObject(Budgets);
